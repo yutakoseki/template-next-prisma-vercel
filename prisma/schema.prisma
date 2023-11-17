@@ -10,8 +10,14 @@ datasource db {
   shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
+model User {
+  id        Int      @id @default(autoincrement())
+  name String @db.VarChar(255)
+}
+
 model Post {
   id          Int    @id @default(autoincrement())
   title       String
   description String
+  createdAt DateTime   @default(now()) @db.Timestamptz
 }
