@@ -93,4 +93,4 @@ const nextConfig = {
 
 ## APIに投げるURLは直書きする
 
-## APIのURLとvercelのURLは同じにする
+## APIのURLとvercelのURLは同じにする(settingsのdomainに合わせたほうがいい)
