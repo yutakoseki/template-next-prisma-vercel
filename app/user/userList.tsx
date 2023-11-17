@@ -1,6 +1,6 @@
 export default async function UserList() {
     // APIのURL
-    const url = "https://next-prisma-vercel-pied.vercel.app/api/user";
+    const url = `${process.env.VERCEL_URL}/api/user`;
 
     // APIへリクエスト
     const res = await fetch(url, {
