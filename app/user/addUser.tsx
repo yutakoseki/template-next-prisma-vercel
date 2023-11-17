@@ -19,7 +19,7 @@ export default function AddUser() {
         }
 
         // APIのURL
-        const url = `${process.env.VERCEL_URL}/api/user`;
+        const url = "https://next-prisma-vercel-pied.vercel.app/api/user";
         // リクエストパラメータ
         const params = {
             method: "POST",
