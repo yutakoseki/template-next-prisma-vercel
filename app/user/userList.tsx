@@ -1,6 +1,6 @@
 export default async function UserList() {
     // APIのURL
-    const url = `${process.env.VERCEL_URL}/api/user`;
+    const url = "http://localhost:3001/api/user";
 
     // APIへリクエスト
     const res = await fetch(url, {

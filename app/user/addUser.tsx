@@ -19,7 +19,7 @@ export default function AddUser() {
         }
 
         // APIのURL
-        const url = `${process.env.VERCEL_URL}/api/user`;
+        const url = "http://localhost:3001/api/user";
         // リクエストパラメータ
         const params = {
             method: "POST",
