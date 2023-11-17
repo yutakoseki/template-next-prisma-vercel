@@ -32,7 +32,6 @@ export default function AddUser() {
                 id: id,
                 name: name,
             }),
-            mode: 'cors', // CORSを有効にする
         };
 
         // APIへのリクエスト

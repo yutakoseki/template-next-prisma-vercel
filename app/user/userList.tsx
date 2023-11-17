@@ -5,7 +5,6 @@ export default async function UserList() {
     // APIへリクエスト
     const res = await fetch(url, {
         cache: "no-store",
-        mode: 'cors', // CORSを有効にする
     });
     // レスポンスボディを取り出す
     const data = await res.json();
