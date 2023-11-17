@@ -2,10 +2,10 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "@/lib/prisma";
 
 export default async function handler(
-  request: NextApiRequest,
-  response: NextApiResponse
+  req: NextApiRequest,
+  res: NextApiResponse
 ) {
-  const { title, description } = JSON.parse(request.body);
+  const { title, description } = JSON.parse(req.body);
 
   try {
     const data = await prisma.post.create({
@@ -20,8 +20,8 @@ export default async function handler(
       },
     });
 
-    return response.status(200).json({ data });
+    return res.status(200).json({ data });
   } catch (error) {
-    return response.status(500).json({ error });
+    return res.status(500).json({ error });
   }
 }
