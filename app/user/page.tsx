@@ -1,6 +1,7 @@
+
+// import UserList from "./userList";
 import AddUser from "./addUser";
 import UserList from "./userList";
-// import UserList from "./userList";
 
 export default async function Home() {
   return (

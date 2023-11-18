@@ -6,20 +6,20 @@ import { useState } from "react";
 
 export default function AddUser() {
     const router = useRouter();
-
-    const [id, setId] = useState("");
     const [name, setName] = useState("");
+    const [password, setPassword] = useState("");
 
     // Userテーブルへデータを書き込む
     const fetchAsyncAddUser = async () => {
         // 入力されていないものがあれば、登録しない
-        if (id == "" || name == "") {
-            alert("すべての項目を埋めてください");
+        if (name == "" || password == "") {
             return;
         }
 
         // APIのURL
-        const url = "https://next-prisma-vercel-pied.vercel.app/api/user";
+        const url = "https://next-prisma-vercel-app.vercel.app/api/user";
+        // local用
+        // const url = "http://localhost:3000/api/user";
         // リクエストパラメータ
         const params = {
             method: "POST",
@@ -29,8 +29,8 @@ export default function AddUser() {
             },
             // リクエストボディ
             body: JSON.stringify({
-                id: id,
                 name: name,
+                password: password,
             }),
         };
 
@@ -38,20 +38,19 @@ export default function AddUser() {
         await fetch(url, params);
 
         // 入力値を初期化
-        setId("");
         setName("");
+        setPassword("");
 
         // 画面をリフレッシュ
         router.refresh();
     };
 
     // inputタグのvalueに変化があった際に実行される
-    const changeIdInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setId(e.target.value);
-    };
-    // inputタグのvalueに変化があった際に実行される
     const changeNameInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         setName(e.target.value);
+    };
+    const changePasswordInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setPassword(e.target.value);
     };
 
     return (
@@ -59,12 +58,12 @@ export default function AddUser() {
             <h2>Add User</h2>
             <div>
                 <div>
-                    <label>Id:</label>
-                    <input type="text" name="id" value={id} onChange={changeIdInput} />
-                </div>
-                <div>
                     <label>Name:</label>
                     <input type="text" name="name" value={name} onChange={changeNameInput} />
+                </div>
+                <div>
+                    <label>password:</label>
+                    <input type="text" name="password" value={password} onChange={changePasswordInput} />
                 </div>
                 <div>
                     <button onClick={fetchAsyncAddUser}>追加</button>

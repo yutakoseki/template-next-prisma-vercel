@@ -94,3 +94,20 @@ const nextConfig = {
 ## APIに投げるURLは直書きする
 
 ## APIのURLとvercelのURLは同じにする(settingsのdomainに合わせたほうがいい)
+
+## auth.jsの導入
+https://zenn.dev/tfutada/articles/5557b780050574
+```shell
+npm i next-auth
+```
+
+```shell
+npm i @next-auth/prisma-adapter
+```
+
+### ランダムな文字列
+```shell
+openssl rand -base64 32
+```
+- 出てきたものを.envに登録
+- 
