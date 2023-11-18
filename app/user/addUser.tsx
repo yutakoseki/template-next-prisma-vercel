@@ -18,6 +18,8 @@ export default function AddUser() {
 
         // APIのURL
         const url = "https://next-prisma-vercel-app.vercel.app/api/user";
+        // local用
+        // const url = "http://localhost:3000/api/user";
         // リクエストパラメータ
         const params = {
             method: "POST",
@@ -28,6 +30,7 @@ export default function AddUser() {
             // リクエストボディ
             body: JSON.stringify({
                 name: name,
+                password: password,
             }),
         };
 
